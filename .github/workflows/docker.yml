@@ -1,0 +1,25 @@
+name: Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: fabiang/diff-to-html
+  VERSION: 1.5
+jobs:
+
+  docker-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --build-arg VERSION=$VERSION --file Dockerfile --tag $IMAGE_NAME:$VERSION
+    - name: Push Docker Image
+      env:
+        DOCKER_REGISTRY_USER: ${{ secrets.DOCKER_REGISTRY_USER }}
+        DOCKER_REGISTRY_PASS: ${{ secrets.DOCKER_REGISTRY_PASS }}
+      run: |
+        echo "$DOCKER_REGISTRY_PASS" | docker login -u "$DOCKER_REGISTRY_USER" --password-stdin
+        docker push "${IMAGE_NAME}:${VERSION}"
+        rm -rf ~/.docker/config.json

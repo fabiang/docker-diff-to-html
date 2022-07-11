@@ -6,8 +6,7 @@ RUN apk add --update curl \
     && curl -L -o /src/diff-to-html.tar.gz \
         "https://github.com/cronn/diff-to-html/archive/refs/tags/v$VERSION.tar.gz" \
     && tar --strip 1 -xzf /src/diff-to-html.tar.gz -C /src \
-    && gradle installDist \
-&& ls -l build/libs/
+    && gradle installDist
 
 FROM amazoncorretto:${JAVA_VERSION}-alpine
 ARG VERSION=1.5
