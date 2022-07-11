@@ -2,6 +2,8 @@
 
 Display diffs in a convenient html page (Docker image)
 
+[Docker Hub](https://hub.docker.com/repository/docker/fabiang/diff-to-html)
+
 ## Usage
 
 ```
