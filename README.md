@@ -1,8 +1,8 @@
-# docker-diff-to-html
+# fabiang/diff-to-html
 
-Display diffs in a convenient html page (Docker image)
+Display diffs in a convenient html page (Docker image). See https://github.com/cronn/diff-to-html for more details.
 
-[Docker Hub](https://hub.docker.com/repository/docker/fabiang/diff-to-html)
+![[Docker Hub](https://hub.docker.com/r/fabiang/diff-to-html)](https://dockerico.blankenship.io/image/fabiang/diff-to-html)
 
 ## Usage
 
